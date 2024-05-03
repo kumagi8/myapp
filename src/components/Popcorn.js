@@ -35,13 +35,13 @@ const Popcorn = () => {
   );
 
   return (
-    <>
+    <div>
       <NavHeader
         movieData={movieData}
         searchText={searchText}
         setSeacrhText={setSeacrhText}
       />
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
         {isLoading ? (
           <Loader />
         ) : (
@@ -52,7 +52,7 @@ const Popcorn = () => {
             setSeacrhText={setSeacrhText}
           />
         )}
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
           {selectedMovie && (
             <MovieDetail
               watched={watched}
@@ -61,10 +61,11 @@ const Popcorn = () => {
               setSelectedMovie={setSelectedMovie}
             />
           )}
-          <WatchedMovies watched={watched} />
         </div>
+        <h2>watch list</h2>
+        <WatchedMovies watched={watched} />
       </div>
-    </>
+    </div>
   );
 };
 
@@ -278,15 +279,15 @@ function WatchedMovies({ watched }) {
       style={{
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "cyan",
+        backgroundColor: "",
       }}
     >
       {watched.length > 0 ? (
-        <>
+        <ul style={{}}>
           {watched.map((w) => (
-            <p>{w.Title}</p>
+            <li key={w}>{w.Title}</li>
           ))}
-        </>
+        </ul>
       ) : (
         <></>
       )}
