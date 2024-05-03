@@ -102,7 +102,7 @@ function NavHeader({ movieData, searchText, setSeacrhText }) {
         height: "4rem",
       }}
     >
-      <h2 style={{ color: "white", marginLeft: "1rem" }}>PopCorn</h2>
+      <h2 style={{ color: "white", marginLeft: "1rem" }}>PopKorn</h2>
       <input
         ref={inputEl}
         style={{
